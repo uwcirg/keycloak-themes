@@ -32,3 +32,4 @@ bin/
 
 keycloack-server/
 data/backup/*.json
+!providers/*.jar
