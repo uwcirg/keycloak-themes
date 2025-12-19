@@ -1,6 +1,6 @@
 <#macro registrationLayout bodyClass="" displayInfo=false displayMessage=true displayRequiredFields=false>
 <!DOCTYPE html>
-<html>
+<html class="${properties.kcHtmlClass!}"<#if realm.internationalizationEnabled> lang="${locale.currentLanguageTag}"</#if>>
 
 <head>
     <meta charset="utf-8">
@@ -29,18 +29,30 @@
             <script src="${url.resourcesPath}/${script}" type="text/javascript"></script>
         </#list>
     </#if>
+    <script src="${url.resourcesPath}/js/menu-button-links.js" type="module"></script>
     <#if scripts??>
         <#list scripts as script>
             <script src="${script}" type="text/javascript"></script>
         </#list>
+    </#if>
+    <#if authenticationSession??>
+        <script type="module">
+            import { checkCookiesAndSetTimer } from "${url.resourcesPath}/js/authChecker.js";
+
+            checkCookiesAndSetTimer(
+              "${authenticationSession.authSessionId}",
+              "${authenticationSession.tabId}",
+              "${url.ssoLoginInOtherTabsUrl?no_esc}"
+            );
+        </script>
     </#if>
 </head>
 
 <body class="${properties.kcBodyClass!}" style="background-color: rgb(245, 245, 245);">
 <div class="${properties.kcLoginClass!}">
     <div id="kc-header" class="${properties.kcHeaderClass!}">
-        <div id="wrapper"
-             style="">${(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</div>
+        <div id="kc-header-wrapper"
+             class="${properties.kcHeaderWrapperClass!}">${kcSanitize(msg("loginTitleHtml",(realm.displayNameHtml!'')))?no_esc}</div>
     </div>
     <div  style="max-width: 78%; margin: 1rem auto; text-align: left; background-color: #fff; border-radius: 6px; box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02); color: #4a4a4a; display: block; padding: 1.25rem; padding-top: 1.5rem; padding-bottom: 3rem;">${(msg("loginTitleHtmlAddl"))?no_esc}
     <div class="${properties.kcFormCardClass!}">
@@ -48,13 +60,15 @@
             <#if realm.internationalizationEnabled  && locale.supported?size gt 1>
                 <div class="${properties.kcLocaleMainClass!}" id="kc-locale">
                     <div id="kc-locale-wrapper" class="${properties.kcLocaleWrapperClass!}">
-                        <div id="kc-locale-dropdown" class="${properties.kcLocaleDropDownClass!}">
-                            <a href="#" id="kc-current-locale-link">${locale.current}</a>
-                            <ul class="${properties.kcLocaleListClass!}">
+                        <div id="kc-locale-dropdown" class="menu-button-links ${properties.kcLocaleDropDownClass!}">
+                            <button tabindex="1" id="kc-current-locale-link" aria-label="${msg("languages")}" aria-haspopup="true" aria-expanded="false" aria-controls="language-switch1">${locale.current}</button>
+                            <ul role="menu" tabindex="-1" aria-labelledby="kc-current-locale-link" aria-activedescendant="" id="language-switch1" class="${properties.kcLocaleListClass!}">
+                                <#assign i = 1>
                                 <#list locale.supported as l>
-                                    <li class="${properties.kcLocaleListItemClass!}">
-                                        <a class="${properties.kcLocaleItemClass!}" href="${l.url}">${l.label}</a>
+                                    <li class="${properties.kcLocaleListItemClass!}" role="none">
+                                        <a role="menuitem" id="language-${i}" class="${properties.kcLocaleItemClass!}" href="${l.url}">${l.label}</a>
                                     </li>
+                                    <#assign i++>
                                 </#list>
                             </ul>
                         </div>
@@ -84,7 +98,7 @@
                         <#nested "show-username">
                         <div id="kc-username" class="${properties.kcFormGroupClass!}">
                             <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                            <a id="reset-login" href="${url.loginRestartFlowUrl}">
+                            <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
                                 <div class="kc-login-tooltip">
                                     <i class="${properties.kcResetFlowIcon!}"></i>
                                     <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
@@ -97,7 +111,7 @@
                 <#nested "show-username">
                 <div id="kc-username" class="${properties.kcFormGroupClass!}">
                     <label id="kc-attempted-username">${auth.attemptedUsername}</label>
-                    <a id="reset-login" href="${url.loginRestartFlowUrl}">
+                    <a id="reset-login" href="${url.loginRestartFlowUrl}" aria-label="${msg("restartLoginTooltip")}">
                         <div class="kc-login-tooltip">
                             <i class="${properties.kcResetFlowIcon!}"></i>
                             <span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
@@ -149,9 +163,7 @@
       </div>
 
     </div>
-    </div>
   </div>
 </body>
 </html>
 </#macro>
-
