@@ -1,0 +1,121 @@
+:root {
+	--pf-global--primary-color--100: #06c;
+}
+
+.kc-header-wrapper {
+    background: linear-gradient(120deg, #003bac 4.69%, #0057ff 40.63%, #009959 95.31%);
+    color: #fff;
+    cursor: default;
+    position: fixed;
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: right;
+    z-index: 10000;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-kerning: normal;
+    text-rendering: optimizelegibility;
+}
+
+.kc-form-wrapper {
+    max-width: 78%;
+    margin: 1rem auto;
+    text-align: left;
+    background-color: #fff;
+    border-radius: 6px;
+    box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1), 0 0 0 1px rgba(10,10,10,.02);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.kc-form-wrapper-header img {
+    padding-top: 1px;
+    width: 25%;
+    height: 25%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kc-form-wrapper-header h1 {
+    text-align: center !important;
+    color: ##363636;
+    font-weight: 600;
+    line-height: 1.125;
+    margin-bottom: 1.5rem;
+    font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 2.4rem;
+    font-kerning: normal;
+    text-rendering: optimizelegibility;
+    text-transform: none;
+}
+
+.kcBodyClass {
+    background-color: rgb(245, 245, 245);
+}
+
+#kc-header {
+    background: #1053a0;
+    color: #fff;
+    cursor: default;
+    position: fixed;
+    left: 0;
+    top: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: right;
+    z-index: 10000;
+    width: 100%;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-kerning: normal;
+    text-rendering: optimizelegibility;
+    font-size: 1.2rem;
+}
+
+@media (min-width: 768px) {
+    .pf-v5-c-login__main .card-pf {
+        padding: 20px 40px 30px 40px;
+    }
+
+    .pf-v5-c-login__main .login-pf-page-header {
+            margin-bottom: 40px;
+    }
+}
+
+.pf-v5-c-login__main .login-pf-page-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.pf-v5-c-login__main .card-pf {
+    padding: 10px 20px 30px 20px;
+    margin-bottom: 0;
+    margin: 0 auto;
+    box-shadow: var(--pf-global--BoxShadow--lg);
+    max-width: 500px;
+    border-top: 4px solid;
+    border-color: var(--pf-global--primary-color--100);
+    background: #fff;
+}
+
+#kc-content-wrapper {
+    margin-top: 20px;
+}
