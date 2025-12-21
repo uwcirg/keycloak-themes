@@ -131,6 +131,7 @@
 	--pf-c-button--after--BorderWidth: var(--pf-global--BorderWidth--sm);
 
 	--pf-v5-global--link--TextDecoration: none;
+	--pf-v5-global--link--TextDecoration--hover:none;
 
 	--pf-v5-global--FontSize--4xl: 2.25rem;
 	--pf-v5-global--FontSize--3xl: 1.75rem;
@@ -176,29 +177,6 @@
 	--pf-v5-global--FontSize--lg: var(--pf-global--FontSize--lg);
 }
 
-.kc-header-wrapper {
-    background: linear-gradient(120deg, #003bac 4.69%, #0057ff 40.63%, #009959 95.31%);
-    color: #fff;
-    cursor: default;
-    position: fixed;
-    top: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    text-align: right;
-    z-index: 10000;
-    width: 100%;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    font-kerning: normal;
-    text-rendering: optimizelegibility;
-}
-
 .kc-form-wrapper {
     max-width: 78%;
     margin: 4rem auto 1rem;
@@ -241,7 +219,7 @@
 }
 
 #kc-header {
-    background: #1053a0;
+    background: linear-gradient(120deg, #003bac 4.69%, #0057ff 40.63%, #009959 95.31%);
     color: #fff;
     cursor: default;
     position: fixed;
@@ -476,7 +454,7 @@
 }
 
 .kc-social-section .pf-v5-c-login__main-footer-links-item-link:hover {
-	text-decoration: var(--pf-v5-global--link--TextDecoration);
+	text-decoration: var(--pf-v5-global--link--TextDecoration--hover);
 }
 
 .kc-social-section .pf-v5-c-login__main-footer-links-item-link span {

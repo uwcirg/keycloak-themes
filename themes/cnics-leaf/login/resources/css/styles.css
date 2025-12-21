@@ -101,16 +101,6 @@
 	--pf-c-form-control--PaddingBottom: calc(var(--pf-global--spacer--form-element) - var(--pf-global--BorderWidth--sm));
 	--pf-c-form-control--Height: calc(var(--pf-c-form-control--FontSize) * var(--pf-c-form-control--LineHeight) + var(--pf-c-form-control--BorderWidth) * 2 + var(--pf-c-form-control--PaddingTop) + var(--pf-c-form-control--PaddingBottom));
 	--pf-c-form-control--hover--BorderBottomColor: var(--pf-global--primary-color--100);
-	--pf-v5-global--FontSize--4xl: 2.25rem;
-	--pf-v5-global--FontSize--3xl: 1.75rem;
-	--pf-v5-global--FontSize--2xl: 1.5rem;
-	--pf-v5-global--FontSize--xl: 1.25rem;
-	--pf-v5-global--FontSize--lg: 1.125rem;
-	--pf-v5-global--FontSize--md: 1rem;
-	--pf-v5-global--FontSize--sm: 0.875rem;
-	--pf-v5-global--FontSize--xs: 0.75rem;
-	--pf-v5-c-login__main-footer--PaddingBottom: 3rem;
-        --pf-v5-c-form__label--FontSize: 12px;
 
         --pf-c-button--m-control--BackgroundColor: var(--pf-global--BackgroundColor--100);
         --pf-c-button--m-control--Color: var(--pf-global--Color--100);
@@ -139,30 +129,52 @@
 	--pf-c-button--after--BorderRadius: var(--pf-global--BorderRadius--sm);
 	--pf-c-button--after--BorderColor: transparent;
 	--pf-c-button--after--BorderWidth: var(--pf-global--BorderWidth--sm);
-	--pf-v5-global--link--TextDecoration: none;
-}
 
-.kc-header-wrapper {
-    background: linear-gradient(120deg, #003bac 4.69%, #0057ff 40.63%, #009959 95.31%);
-    color: #fff;
-    cursor: default;
-    position: fixed;
-    top: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    text-align: right;
-    z-index: 10000;
-    width: 100%;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    font-weight: 400;
-    font-family: BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, Helvetica, Arial, sans-serif;
-    font-size: 1rem;
-    font-kerning: normal;
-    text-rendering: optimizelegibility;
+	--pf-v5-global--link--TextDecoration: none;
+	--pf-v5-global--link--TextDecoration--hover:none;
+
+	--pf-v5-global--FontSize--4xl: 2.25rem;
+	--pf-v5-global--FontSize--3xl: 1.75rem;
+	--pf-v5-global--FontSize--2xl: 1.5rem;
+	--pf-v5-global--FontSize--xl: 1.25rem;
+	--pf-v5-global--FontSize--lg: 1.125rem;
+	--pf-v5-global--FontSize--md: 1rem;
+	--pf-v5-global--FontSize--sm: 0.875rem;
+	--pf-v5-global--FontSize--xs: 0.75rem;
+	--pf-v5-c-login__main-footer--PaddingBottom: 3rem;
+        --pf-v5-c-form__label--FontSize: 12px;
+
+	--pf-v5-global--BackgroundColor--10: var(--pf-global--BackgroundColor--100);
+	--pf-v5-global--Color--100: var(--pf-global--Color--100);
+	--pf-v5-c-button--m-control--BorderRadius: 0;
+	--pf-v5-global--BorderWidth--sm: var(--pf-global--BorderWidth--sm);
+	--pf-v5-global--BorderColor--300: var(--pf-global--BorderColor--300);
+	--pf-v5-global--BorderColor--300: var(--pf-global--BorderColor--300);
+	--pf-v5-global--BorderColor--200: var(--pf-global--BorderColor--200);
+	--pf-v5-global--BorderColor--300: var(--pf-global--BorderColor--300);
+	--pf-v5-global--disabled-color--300: var(--pf-global--disabled-color--300);
+	--pf-v5-global--BackgroundColor--100: var(--pf-global--BackgroundColor--100);
+	--pf-v5-global--Color--100: var(--pf-global--Color--100);
+	--pf-v5-global--BorderWidth--md: var(--pf-global--BorderWidth--md);
+	--pf-v5-global--active-color--100: var(--pf-global--active-color--100);
+	--pf-v5-global--BackgroundColor--100: var(--pf-global--BackgroundColor--100);
+	--pf-v5-global--Color--100: var(--pf-global--Color--100);
+	--pf-v5-global--BorderWidth--md: var(--pf-global--BorderWidth--md);
+	--pf-v5-global--active-color--100: var(--pf-global--active-color--100);
+	--pf-v5-global--BackgroundColor--100: var(--pf-global--BackgroundColor--100);
+	--pf-v5-global--Color--100: var(--pf-global--Color--100);
+	--pf-v5-global--BorderWidth--md: var(--pf-global--BorderWidth--md);
+	--pf-v5-global--active-color--100: var(--pf-global--active-color--100);
+	--pf-v5-global--BackgroundColor--100: var(--pf-global--BackgroundColor--100);
+	--pf-v5-global--Color--100: var(--pf-global--Color--100);
+	--pf-v5-global--BorderWidth--md: var(--pf-global--BorderWidth--md);
+	--pf-v5-global--active-color--100: var(--pf-global--active-color--100);
+	--pf-v5-global--spacer--md: var(--pf-global--spacer--md);
+	--pf-v5-global--spacer--xl: var(--pf-global--spacer--xl);
+	--pf-v5-global--spacer--md: var(--pf-global--spacer--md);
+	--pf-v5-global--spacer--xl: var(--pf-global--spacer--xl);
+	--pf-v5-global--FontWeight--bold: var(--pf-global--FontWeight--bold);
+	--pf-v5-global--FontSize--lg: var(--pf-global--FontSize--lg);
 }
 
 .kc-form-wrapper {
@@ -333,6 +345,7 @@
 	border-color: var(--pf-c-form-control--BorderTopColor) var(--pf-c-form-control--BorderRightColor) var(--pf-c-form-control--BorderBottomColor) var(--pf-c-form-control--BorderLeftColor);
 	border-radius: var(--pf-c-form-control--BorderRadius);
 	border: var(--pf-c-form-control--BorderWidth) solid;
+	border-color: var(--pf-c-form-control--BorderTopColor) var(--pf-c-form-control--BorderRightColor) var(--pf-c-form-control--BorderBottomColor) var(--pf-c-form-control--BorderLeftColor);
 }
 
 #kc-form-login .pf-v5-c-form__label {
@@ -440,8 +453,8 @@
 	border-color: rgba(230, 230, 230, 0.5);
 }
 
-.kc-social-section .pf-v5-c-login__main-footer-links-item-link a:hover {
-	text-decoration: var(--pf-v5-global--link--TextDecoration);
+.kc-social-section .pf-v5-c-login__main-footer-links-item-link:hover {
+	text-decoration: var(--pf-v5-global--link--TextDecoration--hover);
 }
 
 .kc-social-section .pf-v5-c-login__main-footer-links-item-link span {
