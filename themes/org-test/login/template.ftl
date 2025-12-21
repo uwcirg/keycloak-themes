@@ -68,7 +68,7 @@
             <header class="${properties.kcFormWrapperHeaderClass!}">
                 <img src="https://hivsuccess.uw.edu/images/HIV%20SUCCESS%20Text%20Logo_color.png" alt="Logo" />
                 <h1 class="text-center">
-                    ${(msg("loginTitleHtmlAddl"))?no_esc}
+                    ${kcSanitize(msg("loginTitleHtmlAddl"))?no_esc}
                 </h1>
             </header>
 
