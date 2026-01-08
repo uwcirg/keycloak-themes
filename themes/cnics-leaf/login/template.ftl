@@ -66,7 +66,7 @@
 
         <div class="${properties.kcFormWrapperClass!}">
             <header class="${properties.kcFormWrapperHeaderClass!}">
-                <img src="https://hivsuccess.uw.edu/images/HIV%20SUCCESS%20Text%20Logo_color.png" alt="Logo" />
+                <img src="https://bpb-us-w2.wpmucdn.com/sites.uab.edu/dist/0/119/files/2020/04/CNICS-Logo-1536x582.png" alt="Logo" />
                 <h1 class="text-center">
                     ${kcSanitize(msg("loginTitleHtmlAddl"))?no_esc}
                 </h1>
