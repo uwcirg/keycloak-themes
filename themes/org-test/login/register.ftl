@@ -88,7 +88,7 @@
                     <input class="${properties.kcButtonClass!} ${properties.kcButtonPrimaryClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!}" type="submit" value="${msg("doRegister")}"/>
                 </div>
             </div>
-            <div style="text-align: center !important; color: ##363636; font-weight: 600; line-height: 1.125; margin-bottom: 1.5rem; font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 2.4rem; font-kerning: normal; text-rendering: optimizelegibility; text-transform: none;">
+            <div style="text-align: center !important;color: #363636;font-family: BlinkMacSystemFont, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;font-kerning: normal;text-rendering: optimizelegibility;text-transform: none;">
             <h4>All fields must be filled in to complete registration.  Passwords must be at least 8 characters long.</h4>
             <h6>Details are collected for the purpose of understanding who the users are and supporting password reset/access.  Data are stored securely and not shared outside of HIV SUCCESS.</h6>
             </div>
