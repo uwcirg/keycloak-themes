@@ -1,9 +1,20 @@
+server/themes/*
+server/providers/*
+
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
 ### IntelliJ IDEA ###
+.idea/
+*.iws
+*.iml
+*.ipr
 out/
 !**/src/main/**/out/
 !**/src/test/**/out/
-*.iml
-.idea/
 
 ### Eclipse ###
 .apt_generated
