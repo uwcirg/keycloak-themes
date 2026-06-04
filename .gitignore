@@ -1,3 +1,9 @@
+.claude/
+.github/
+.gradle/
+.kotlin/
+CLAUDE.md
+
 ### IntelliJ IDEA ###
 out/
 !**/src/main/**/out/
