@@ -32,7 +32,7 @@
                name="try-again" id="kc-try-again" value="${kcSanitize(msg("doTryAgain"))?no_esc}"
         />
 
-        <a id="kc-back-to-login" href="${url.loginUrl}"
+        <a id="kc-back-to-login" href="${url.loginRestartFlowUrl}"
            class="${properties.kcButtonClass!} ${properties.kcButtonDefaultClass!} ${properties.kcButtonBlockClass!} ${properties.kcButtonLargeClass!} ${properties.kcMarginTopClass!}">${kcSanitize(msg("cirg-webauthn-back-to-login"))?no_esc}</a>
 
         <#if isAppInitiatedAction??>
