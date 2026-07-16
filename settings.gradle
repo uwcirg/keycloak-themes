@@ -1,0 +1,17 @@
+rootProject.name = 'keycloak-themes'
+
+def subprojectsDirectory = file('modules')
+includeSubprojects(subprojectsDirectory)
+
+def includeSubprojects(File directory, String basePath = '') {
+	directory.eachDir { subDirectory ->
+		def buildFile = new File(subDirectory, 'build.gradle')
+
+		if (buildFile.exists()) {
+			def projectName = "${basePath}${subDirectory.name}"
+			include projectName
+			project(":$projectName").projectDir = subDirectory
+			includeSubprojects(subDirectory, "${projectName}:")
+		}
+	}
+}

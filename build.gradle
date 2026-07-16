@@ -1,0 +1,42 @@
+plugins {
+	id 'java'
+	id 'com.google.cloud.tools.jib' version '3.4.5'
+}
+
+wrapper {
+	gradleVersion = '8.11'
+}
+
+jib {
+	from {
+		image = "quay.io/keycloak/keycloak:26.1.0"
+	}
+	to {
+		image = "ghcr.io/uwcirg/keycloak-themes:latest"
+		auth {
+			username = project.findProperty("githubUsername")
+			password = project.findProperty("githubToken")
+		}
+	}
+	container {
+		entrypoint = [ '/opt/keycloak/bin/kc.sh' ]
+		ports = [ "8080" ]
+		args = [ "start" ]
+	}
+	extraDirectories {
+		paths {
+			path {
+				from = "./modules/themes"
+				into = "/opt/keycloak/themes"
+			}
+			path {
+				from = new File(rootDir, "server/providers")
+				into = "/opt/keycloak/providers"
+			}
+		}
+	}
+}
+
+tasks.named("jib").configure {
+	dependsOn subprojects.collect { it.tasks.named("deploy") }
+}
