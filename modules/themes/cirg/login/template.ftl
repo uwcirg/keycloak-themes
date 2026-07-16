@@ -42,11 +42,15 @@
 
 		<#-- Import map so inherited WebAuthn/passkey scripts (webauthnRegister.js / webauthnAuthenticate.js)
 		     can resolve their bare "rfc4648" module specifier. Keycloak's stock template.ftl provides this;
-		     cirg's custom template must supply it too. The target file is vendored under common/cirg. -->
+		     cirg's custom template must supply it too. We use url.resourcesPath (not resourcesCommonPath):
+		     import=common/cirg merges the common theme's resources into this theme's own resource lookup,
+		     so resourcesPath serves the copy vendored at common/resources/vendor/. url.resourcesCommonPath
+		     is NOT driven by import= — it pins to the stock common/keycloak theme (verified 2026-07-16,
+		     incl. refuting the hypothesis that a cirg/common/theme.properties would redirect it). -->
 		<script type="importmap">
 			{
 				"imports": {
-					"rfc4648": "${url.resourcesCommonPath}/vendor/rfc4648/rfc4648.js"
+					"rfc4648": "${url.resourcesPath}/vendor/rfc4648/rfc4648.js"
 				}
 			}
 		</script>
