@@ -10,15 +10,18 @@ Built against **Keycloak 26.1** (theme API **v2** / PatternFly 5).
 
 ## Repository layout (two branches)
 
-This repo is split across two long-lived branches with **different directory structures**:
+The two long-lived branches are **`main`** and **`alpha`**. Both use the same directory
+structure — themes under `modules/themes/<name>/`, the provider under `server/providers/`:
 
-| Branch | Purpose | Theme path | Provider path | Build files |
-|--------|---------|------------|---------------|-------------|
-| **`main`** | Theme **source** — edit here | `themes/<name>/` | `providers/*.jar` | none |
-| **`build-jib`** | **Deployable** — build the image here | `modules/themes/<name>/` | `server/providers/` | Gradle + Jib |
+| Branch | Purpose                                                         | Build files |
+|--------|-----------------------------------------------------------------|-------------|
+| **`main`** | Theme **source of truth** for releases                          | none |
+| **`alpha`** | **Development alpha system** — contains extra development tools | `build.gradle`, `settings.gradle`, Gradle wrapper |
 
-A change made to a theme on `main` only ships once it also reaches `build-jib` (under
-`modules/themes/`). If you're looking for `build.gradle` and don't find it, you're on `main`.
+Day-to-day theme work happens on `alpha`, whose tooling builds the image that runs the alpha
+system; changes validated there are promoted to `main`, which releases are cut from.
+If you're looking for `build.gradle` and don't find it, you're on `main`. (The former
+`build-jib` branch was merged into `alpha` and deleted.)
 
 ## Themes
 
@@ -41,7 +44,7 @@ The themes build on one of two stylistic bases:
    and re-skins every `kc*Class` property to **Bootstrap 5** classes, bundling Bootstrap and
    FontAwesome under `cirg/common/resources/` (shared via `import=common/cirg`). The point of
    cirg is reuse: a new theme can set `parent=cirg` to inherit the Bootstrap 5 + FontAwesome
-   styling and shared assets, then override only its own branding. See `themes/cirg/README.md`
+   styling and shared assets, then override only its own branding. See `modules/themes/cirg/README.md`
    for the extension patterns.
 2. **`org-test`, `cnics-leaf`, and the three `hivsuccess-*` — PatternFly 5 themes.** These build
    directly on Keycloak's built-in **`keycloak.v2`** theme and `import=common/keycloak` rather
@@ -50,10 +53,9 @@ The themes build on one of two stylistic bases:
 
 ## Providers
 
-- **`keycloak-restrict-client-auth.jar`** — a vendored third-party provider
+- **`server/providers/keycloak-restrict-client-auth.jar`** — a vendored third-party provider
   (`keycloak-restrict-client-auth`) that restricts which users may authenticate against a given
-  client. It is a prebuilt binary, not compiled from this repo; `.gitignore` force-includes
-  `providers/*.jar` so it stays tracked.
+  client. It is a prebuilt binary, not compiled from this repo.
 
 ## Local preview
 
@@ -63,7 +65,7 @@ theme caching so edits show on refresh:
 ```bash
 docker run --rm -p 8080:8080 \
   -e KC_BOOTSTRAP_ADMIN_USERNAME=admin -e KC_BOOTSTRAP_ADMIN_PASSWORD=admin \
-  -v "$(pwd)/themes:/opt/keycloak/themes" \
+  -v "$(pwd)/modules/themes:/opt/keycloak/themes" \
   quay.io/keycloak/keycloak:26.1.0 \
   start-dev --spi-theme-cache-themes=false --spi-theme-static-max-age=-1
 ```
@@ -92,5 +94,5 @@ Conventions used throughout this repo:
 - `theme.properties` list values are space-separated; `\` continues a line. `stylesCommon`
   resolves against the `common/` theme, `styles` against the theme's own `resources/`.
 
-`themes/cirg/README.md` documents the cirg parent theme and its extension patterns in more
-detail.
+`modules/themes/cirg/README.md` documents the cirg parent theme and its extension patterns in
+more detail.
