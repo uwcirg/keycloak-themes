@@ -39,6 +39,17 @@
 				<script src="${script}" type="text/javascript"></script>
 			</#list>
 		</#if>
+
+		<#-- Import map so inherited WebAuthn/passkey scripts (webauthnRegister.js / webauthnAuthenticate.js)
+		     can resolve their bare "rfc4648" module specifier. Keycloak's stock template.ftl provides this;
+		     cirg's custom template must supply it too. The target file is vendored under common/cirg. -->
+		<script type="importmap">
+			{
+				"imports": {
+					"rfc4648": "${url.resourcesCommonPath}/vendor/rfc4648/rfc4648.js"
+				}
+			}
+		</script>
 	</head>
 
 	<body class="${properties.kcBodyClass!} login-page">
