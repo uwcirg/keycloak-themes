@@ -6,7 +6,7 @@ Custom Keycloak themes and an authentication provider for UW CIRG's identity sys
 provider JAR. There is no application code; Keycloak loads and renders these at runtime to brand
 the login, email, account-admin, and welcome screens.
 
-Built against **Keycloak 26.1** (theme API **v2** / PatternFly 5).
+Built against **Keycloak 26.4** (theme API **v2** / PatternFly 5).
 
 ## Repository layout (two branches)
 
@@ -66,7 +66,7 @@ theme caching so edits show on refresh:
 docker run --rm -p 8080:8080 \
   -e KC_BOOTSTRAP_ADMIN_USERNAME=admin -e KC_BOOTSTRAP_ADMIN_PASSWORD=admin \
   -v "$(pwd)/modules/themes:/opt/keycloak/themes" \
-  quay.io/keycloak/keycloak:26.1.0 \
+  quay.io/keycloak/keycloak:26.4.7 \
   start-dev --spi-theme-cache-themes=false --spi-theme-static-max-age=-1
 ```
 

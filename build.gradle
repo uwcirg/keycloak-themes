@@ -9,7 +9,7 @@ wrapper {
 
 jib {
 	from {
-		image = "quay.io/keycloak/keycloak:26.1.0"
+		image = "quay.io/keycloak/keycloak:26.4.7"
 	}
 	to {
 		image = "ghcr.io/uwcirg/keycloak-themes:latest"
