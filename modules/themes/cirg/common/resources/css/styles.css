@@ -46,10 +46,6 @@
 	}
 }
 
-.kc-login-tooltip, .kc-login-tooltip * {
-	color: #fff !important;
-}
-
 main {
 	display: flex;
 	align-items: center;
