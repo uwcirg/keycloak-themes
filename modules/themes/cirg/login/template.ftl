@@ -116,13 +116,11 @@
 								<div id="kc-username"
 								     class="${properties.kcFormGroupClass!}">
 									<label id="kc-attempted-username">${auth.attemptedUsername}</label>
-									<a id="reset-login"
-									   href="${url.loginRestartFlowUrl}"
+									<a id="reset-login" href="${url.loginRestartFlowUrl}"
+									   class="${properties.kcRestartLoginClass!}"
 									   aria-label="${msg("restartLoginTooltip")}">
-										<div class="kc-login-tooltip">
-											<i class="${properties.kcResetFlowIcon!}"></i>
-											<span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-										</div>
+										<i class="${properties.kcResetFlowIcon!}" aria-hidden="true"></i>
+										<span>${msg("restartLoginTooltip")}</span>
 									</a>
 								</div>
 							</div>
@@ -132,11 +130,10 @@
 						<div id="kc-username" class="${properties.kcFormGroupClass!}">
 							<label id="kc-attempted-username">${auth.attemptedUsername}</label>
 							<a id="reset-login" href="${url.loginRestartFlowUrl}"
+							   class="${properties.kcRestartLoginClass!}"
 							   aria-label="${msg("restartLoginTooltip")}">
-								<div class="kc-login-tooltip">
-									<i class="${properties.kcResetFlowIcon!}"></i>
-									<span class="kc-tooltip-text">${msg("restartLoginTooltip")}</span>
-								</div>
+								<i class="${properties.kcResetFlowIcon!}" aria-hidden="true"></i>
+								<span>${msg("restartLoginTooltip")}</span>
 							</a>
 						</div>
 		                        </#if>
@@ -148,19 +145,14 @@
 		                            <#-- App-initiated actions should not see warning messages about the need to complete the action -->
 		                            <#-- during login.                                                                               -->
 		                            <#if displayMessage && message?has_content && (message.type != 'warning' || !isAppInitiatedAction??)>
-						    <div class="alert-${message.type} ${properties.kcAlertClass!} alert-${message.type}">
-							    <div class="pf-c-alert__icon">
-		                                                <#if message.type = 'success'><span
-									class="${properties.kcFeedbackSuccessIcon!}"></span></#if>
-		                                                <#if message.type = 'warning'><span
-									class="${properties.kcFeedbackWarningIcon!}"></span></#if>
-		                                                <#if message.type = 'error'><span
-									class="${properties.kcFeedbackErrorIcon!}"></span></#if>
-		                                                <#if message.type = 'info'><span
-									class="${properties.kcFeedbackInfoIcon!}"></span></#if>
-							    </div>
-							    <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
-						    </div>
+		                                <#assign kcAlertClass = properties['kcAlert' + message.type?cap_first + 'Class']!properties.kcAlertClass!'alert'>
+		                                <div class="${kcAlertClass}" role="alert">
+		                                    <#if message.type = 'success'><span class="${properties.kcFeedbackSuccessIcon!} me-2" aria-hidden="true"></span></#if>
+		                                    <#if message.type = 'warning'><span class="${properties.kcFeedbackWarningIcon!} me-2" aria-hidden="true"></span></#if>
+		                                    <#if message.type = 'error'><span class="${properties.kcFeedbackErrorIcon!} me-2" aria-hidden="true"></span></#if>
+		                                    <#if message.type = 'info'><span class="${properties.kcFeedbackInfoIcon!} me-2" aria-hidden="true"></span></#if>
+		                                    <span class="${properties.kcAlertTitleClass!}">${kcSanitize(message.summary)?no_esc}</span>
+		                                </div>
 		                            </#if>
 
 		                            <#nested "form">
