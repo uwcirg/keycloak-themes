@@ -34,6 +34,18 @@
         </#list>
     </#if>
 
+    <#-- Import map so inherited WebAuthn/passkey scripts (webauthnRegister.js / webauthnAuthenticate.js)
+         can resolve their bare "rfc4648" module specifier. Keycloak's stock template.ftl provides this;
+         any custom template.ftl shadows it and must supply the map too. The target file resolves via the
+         stock common/keycloak theme (import=common/keycloak); no vendored copy in this theme. -->
+    <script type="importmap">
+        {
+            "imports": {
+                "rfc4648": "${url.resourcesCommonPath}/vendor/rfc4648/rfc4648.js"
+            }
+        }
+    </script>
+
     <script src="${url.resourcesPath}/js/menu-button-links.js" type="module"></script>
 
     <#if scripts??>
